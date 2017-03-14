@@ -33,18 +33,14 @@ public final class FrmMain extends JFrame {
     JPanel ret = new JPanel();
 
     JButton btnUndo = new JButton("undo");
-    btnUndo.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
+    btnUndo.addActionListener((ActionEvent e) -> {
         btnUndoClicked();
-      }
     });
     ret.add(btnUndo);
 
     JButton btnRedo = new JButton("redo");
-    btnRedo.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
+    btnRedo.addActionListener((ActionEvent e) -> {
         btnRedoClicked();
-      }
     });
     ret.add(btnRedo);
 
