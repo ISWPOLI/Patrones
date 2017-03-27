@@ -1,4 +1,4 @@
-//package org.cyrano.paintables;
+//package paintables;
 //
 //import java.awt.Color;
 //import java.awt.Graphics2D;

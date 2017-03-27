@@ -3,9 +3,9 @@
 //import java.awt.Graphics2D;
 //import java.awt.image.BufferedImage;
 //
-//import org.cyrano.common.ImageCache;
-//import org.cyrano.common.PaintableBase;
-//import org.cyrano.common.SmileConstants;
+//import common.ImageCache;
+//import common.PaintableBase;
+//import common.SmileConstants;
 //
 //public class ImageFace extends PaintableBase {
 //

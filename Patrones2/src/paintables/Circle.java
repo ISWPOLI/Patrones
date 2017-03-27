@@ -3,7 +3,7 @@
 //import java.awt.Color;
 //import java.awt.Graphics2D;
 //
-//import org.cyrano.common.PaintableBase;
+//import common.PaintableBase;
 //
 //public class Circle extends PaintableBase {
 //
