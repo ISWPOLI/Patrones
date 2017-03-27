@@ -56,7 +56,7 @@ public class FrmMain extends JFrame {
     // --------------------------------------------------------------------------------
 
     JToggleButton btnSelect = new JToggleButton( //
-        new ImageIcon(ImageCache.getInstance().getSystemImage("org/cyrano/images/cursor.png")));
+        new ImageIcon(ImageCache.getInstance().getSystemImage("images/cursor.png")));
 
     btnSelect.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -89,7 +89,7 @@ public class FrmMain extends JFrame {
     // --------------------------------------------------------------------------------
 
     JToggleButton btnDelete = new JToggleButton( //
-        new ImageIcon(ImageCache.getInstance().getSystemImage("org/cyrano/images/delete_icon.png")));
+        new ImageIcon(ImageCache.getInstance().getSystemImage("images/delete_icon.png")));
 
     btnDelete.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -103,7 +103,7 @@ public class FrmMain extends JFrame {
     // --------------------------------------------------------------------------------
 
     JButton btnUndo = new JButton( //
-        new ImageIcon(ImageCache.getInstance().getSystemImage("org/cyrano/images/undo_button.png")));
+        new ImageIcon(ImageCache.getInstance().getSystemImage("images/undo_button.png")));
 
     btnUndo.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -115,7 +115,7 @@ public class FrmMain extends JFrame {
     // --------------------------------------------------------------------------------
 
     JButton btnRedo = new JButton( //
-        new ImageIcon(ImageCache.getInstance().getSystemImage("org/cyrano/images/redo_button.png")));
+        new ImageIcon(ImageCache.getInstance().getSystemImage("images/redo_button.png")));
 
     btnRedo.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -132,7 +132,7 @@ public class FrmMain extends JFrame {
     // --------------------------------------------------------------------------------
 
     JButton btnSave = new JButton( //
-        new ImageIcon(ImageCache.getInstance().getSystemImage("org/cyrano/images/save_icon.png")));
+        new ImageIcon(ImageCache.getInstance().getSystemImage("images/save_icon.png")));
 
     btnSave.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
@@ -144,7 +144,7 @@ public class FrmMain extends JFrame {
     // --------------------------------------------------------------------------------
 
     JButton btnOpen = new JButton( //
-        new ImageIcon(ImageCache.getInstance().getSystemImage("org/cyrano/images/open_icon.png")));
+        new ImageIcon(ImageCache.getInstance().getSystemImage("images/open_icon.png")));
 
     btnOpen.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
