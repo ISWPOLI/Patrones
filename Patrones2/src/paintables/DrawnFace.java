@@ -9,6 +9,7 @@ import common.Paintable;
 import common.Paintable;
 import common.PaintableBase;
 import common.PaintableBase;
+import paintables.Circle;
 
 // Composite
 public class DrawnFace extends PaintableBase {
