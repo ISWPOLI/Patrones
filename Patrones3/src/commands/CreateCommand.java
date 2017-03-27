@@ -22,10 +22,8 @@ public class CreateCommand implements Command {
 
   public CreateCommand(PaintableFactory paintableFactory, int x, int y, List<Paintable> paintableList) {
     this.paintableFactory = paintableFactory;
-
     this.x = x;
     this.y = y;
-
     this.paintableList = paintableList;
   }
 
