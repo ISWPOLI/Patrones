@@ -2,6 +2,7 @@ package tools.sad;
 
 import common.Paintable;
 import common.PaintableFactory;
+import common.SmileConstants;
 import paintables.DrawnFace;
 
 
@@ -14,7 +15,9 @@ public class SadPaintableFactory implements PaintableFactory {
       if (useImage) {
     return new SadImageFace(x1, y1, x2, y2);
        } else {
-         return new DrawnFace(x1, y1, x2, y2, 2);
+         return new DrawnFace(x1, y1, x2, y2,SmileConstants.SMILE_UP);
+//¿Qué pasa si le asigno un numero en lugar de SmileConstants.SMILE_UP?
+//¿Porqué no genera error?
         }
   }
 }

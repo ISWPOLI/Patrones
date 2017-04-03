@@ -2,6 +2,7 @@ package tools.normal;
 
 import common.Paintable;
 import common.PaintableFactory;
+import common.SmileConstants;
 import paintables.DrawnFace;
 
 // Factory
@@ -13,7 +14,7 @@ public class NormalPaintableFactory implements PaintableFactory {
        if (useImage) {
     return new NormalImageFace(x1, y1, x2, y2);
        } else {
-         return new DrawnFace(x1, y1, x2, y2,4);
+         return new DrawnFace(x1, y1, x2, y2,SmileConstants.SMILE_OK);
        }
   }
 }
