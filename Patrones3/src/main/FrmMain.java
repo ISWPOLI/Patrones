@@ -24,6 +24,7 @@ import main.Canvas.Tool;
 import plugins.PaintableFactory;
 import plugins.PluginsReader;
 
+// Diego Iván
 public class FrmMain extends JFrame {
 
   private Canvas client;
