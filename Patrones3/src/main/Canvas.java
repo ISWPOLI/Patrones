@@ -45,29 +45,29 @@ public class Canvas extends JPanel {
   // --------------------------------------------------------------------------------
 
   public Canvas() {
-    //    int x;
-    //    int y;
-    //
-    //    PaintableFactory paintableFactory = new PaintableFactory();
-    //
-    //    // Face 1
-    //    x = 100;
-    //    y = 100;
-    //    paintableList.add(paintableFactory.create(x, y, x + 100, y + 100, SmileConstants.SMILE_DW));
-    //
-    //    // Face 2
-    //    x = 200;
-    //    y = 200;
-    //    paintableList.add(paintableFactory.create(x, y, x + 100, y + 100, SmileConstants.SMILE_OK));
-    //
-    //    // Face 3
-    //    x = 300;
-    //    y = 300;
-    //    paintableList.add(paintableFactory.create(x, y, x + 100, y + 100, SmileConstants.SMILE_UP));
+//        int x;
+//        int y;
+//    
+//        PaintableFactory paintableFactory = new PaintableFactory();
+//    
+//        // Face 1
+//        x = 100;
+//        y = 100;
+//        paintableList.add(paintableFactory.create(x, y, x + 100, y + 100, SmileConstants.SMILE_DW));
+//    
+//        // Face 2
+//        x = 200;
+//        y = 200;
+//        paintableList.add(paintableFactory.create(x, y, x + 100, y + 100, SmileConstants.SMILE_OK));
+//    
+//        // Face 3
+//        x = 300;
+//        y = 300;
+//        paintableList.add(paintableFactory.create(x, y, x + 100, y + 100, SmileConstants.SMILE_UP));
 
-    // --------------------------------------------------------------------------------
-    // Mouse Handling
-    // --------------------------------------------------------------------------------
+//     --------------------------------------------------------------------------------
+//     Mouse Handling
+//     --------------------------------------------------------------------------------
 
     addMouseMotionListener(new MouseMotionAdapter() {
       public void mouseDragged(MouseEvent evt) {
