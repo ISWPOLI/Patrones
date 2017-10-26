@@ -15,9 +15,11 @@ public class SadPaintableFactory implements PaintableFactory {
       if (useImage) {
     return new SadImageFace(x1, y1, x2, y2);
        } else {
-         return new DrawnFace(x1, y1, x2, y2,SmileConstants.SMILE_UP);
+         return new DrawnFace(x1, y1, x2, y2,SmileConstants.SMILE_DW);
 //¿Qué pasa si le asigno un numero en lugar de SmileConstants.SMILE_UP?
 //¿Porqué no genera error?
+//Porque el último parámetro (state) del método DrawnFace es tipo int y se le 
+//está pasando la interfaz SmileConstants que almacena constantes tipo int
         }
   }
 }
