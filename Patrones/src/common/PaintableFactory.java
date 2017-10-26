@@ -15,6 +15,7 @@ public class PaintableFactory {
       return new DrawnFace(x1, y1, x2, y2, state);
     }
     
-    // Se compara la variable useImagen = falso en el if, y el programa compila mostrando las caras vectoriales.
+    /* Se compara la variable useImagen = falso en el if, y el programa compila 
+    mostrando las caras vectoriales.*/
   }
 }
