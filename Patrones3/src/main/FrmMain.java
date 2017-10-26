@@ -20,6 +20,7 @@ import formats.ExtFileFilter;
 import formats.FileFormat;
 import formats.FileFormatFactory;
 import formats.FileFormatReader;
+import javax.swing.JOptionPane;
 import main.Canvas.Tool;
 import plugins.PaintableFactory;
 import plugins.PluginsReader;
@@ -68,7 +69,64 @@ public class FrmMain extends JFrame {
     toolBar.add(btnSelect);
     buttonGroup.add(btnSelect);
 
+    
+    
+    List<PaintableFactory> paintableFactoryListFigures = //
+    PluginsReader.fsRead(ClassLoader.getSystemResourceAsStream("plugins_figures.txt"));
+
+    for (final PaintableFactory paintableFactory : paintableFactoryListFigures) {
+      JToggleButton btnTool = //
+      new JToggleButton(paintableFactory.getClass().getSimpleName());
+      btnTool.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+          client.setPaintableFactory(paintableFactory);
+        }
+      });
+      toolBar.add(btnTool);
+      buttonGroup.add(btnTool);
+    }
+    
     // --------------------------------------------------------------------------------
+
+    JToggleButton btnFigSmile = new JToggleButton( new ImageIcon(ImageCache.getInstance().getSystemImage("images/smile.png")) );
+    btnFigSmile.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent evt) {
+          JOptionPane.showMessageDialog(rootPane, "Smile");
+//        client.setPaintableFactory(null);
+//        client.setTool(Tool.SELECT);
+      }
+    });
+    toolBar.add(btnFigSmile);
+    buttonGroup.add(btnFigSmile);
+
+    // --------------------------------------------------------------------------------
+    
+    JToggleButton btnFigNormal = new JToggleButton( new ImageIcon(ImageCache.getInstance().getSystemImage("images/normal.png")) );
+    btnFigNormal.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent evt) {
+          JOptionPane.showMessageDialog(rootPane, "Normal");
+//        client.setPaintableFactory(null);
+//        client.setTool(Tool.SELECT);
+      }
+    });
+    toolBar.add(btnFigNormal);
+    buttonGroup.add(btnFigNormal);
+
+    // --------------------------------------------------------------------------------
+    
+    JToggleButton btnFigSad = new JToggleButton( new ImageIcon(ImageCache.getInstance().getSystemImage("images/sad.png")) );
+    btnFigSad.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent evt) {
+          JOptionPane.showMessageDialog(rootPane, "Sad");
+//        client.setPaintableFactory(null);
+//        client.setTool(Tool.SELECT);
+      }
+    });
+    toolBar.add(btnFigSad);
+    buttonGroup.add(btnFigSad);
+
+    // --------------------------------------------------------------------------------
+    
 
     List<PaintableFactory> paintableFactoryList = //
     PluginsReader.fsRead(ClassLoader.getSystemResourceAsStream("plugins.txt"));
