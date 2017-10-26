@@ -15,9 +15,15 @@ public class SadPaintableFactory implements PaintableFactory {
       if (useImage) {
     return new SadImageFace(x1, y1, x2, y2);
        } else {
-         return new DrawnFace(x1, y1, x2, y2,SmileConstants.SMILE_UP);
+         return new DrawnFace(x1, y1, x2, y2,SmileConstants.SMILE_DW);
+//Se cambia el parametro SMILE_UP, por SMILE_DW
+         
 //¿Qué pasa si le asigno un numero en lugar de SmileConstants.SMILE_UP?
+
+//La voca de la cara desaparece
+
 //¿Porqué no genera error?
+//Porque el objeto recibe 5 parametros
         }
   }
 }
