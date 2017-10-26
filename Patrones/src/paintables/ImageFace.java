@@ -21,8 +21,8 @@ public class ImageFace extends PaintableBase {
 
    //  Opcion A
         try {
-          bufferedImage = ImageIO.read(new File("smile0.png"));
-        } catch (IOException e) {
+            bufferedImage = ImageIO.read(new File("C:\\Users\\Miguel\\Desktop\\PATRONES\\Patrones-master\\Patrones\\src\\main\\smile0.png"));
+          } catch (IOException e) {
           throw new RuntimeException(e);
         }
 
