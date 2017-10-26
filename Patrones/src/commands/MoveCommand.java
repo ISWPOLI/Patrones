@@ -1,36 +1,42 @@
-package commands;
+package paintables;
 
-import common.Command;
-import common.Paintable;
+import java.awt.Color;
+import java.awt.Graphics2D;
 
-// Command
-public class MoveCommand implements Command {
+import common.PaintableBase;
+import common.SmileConstants;
 
-  private Paintable paintable;
+public class Smile extends PaintableBase {
 
-  private int dx;
-  private int dy;
+  private int state;
 
   // --------------------------------------------------------------------------------
 
-  public MoveCommand(Paintable paintable, int dx, int dy) {
-    this.paintable = paintable;
+  public Smile(int x1, int y1, int x2, int y2, int state) {
+    super(x1, y1, x2, y2);
 
-    this.dx = dx;
-    this.dy = dy;
+    this.state = state;
   }
 
   // --------------------------------------------------------------------------------
 
   @Override
-  public void redoCommand() {
-    paintable.move(+dx, +dy);
-  }
+  public void draw(Graphics2D g2d) {
+    g2d.setColor(Color.BLACK);
 
-  // --------------------------------------------------------------------------------
+    int w = x2 - x1;
+    int h = y2 - y1;
 
-  @Override
-  public void undoCommand() {
-    paintable.move(-dx, -dy);
+    switch (state) {
+      case SmileConstants.SMILE_UP :
+        g2d.drawArc(x1, y1 - w / 2, w, h, 0, -180);
+        break;
+      case SmileConstants.SMILE_DW :
+        g2d.drawArc(x1, y1/*    */, w, h, 0, +180);
+        break;
+      case SmileConstants.SMILE_OK :
+        g2d.drawLine(x1, y1 + h / 3, x1 + w, y1 + h / 3);
+        break;
+    }
   }
 }

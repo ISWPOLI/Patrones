@@ -29,10 +29,10 @@ public class Smile extends PaintableBase {
 
     switch (state) {
       case SmileConstants.SMILE_UP :
-        g2d.drawArc(x1, y1 - w / 2, w, h, 0, -180);
+        g2d.drawArc(x1, y1 - w / 2, w, h, 0, -179);
         break;
       case SmileConstants.SMILE_DW :
-        g2d.drawArc(x1, y1/*    */, w, h, 0, +180);
+        g2d.drawArc(x1, y1/*    */, w, h, 0, +179);
         break;
       case SmileConstants.SMILE_OK :
         g2d.drawLine(x1, y1 + h / 3, x1 + w, y1 + h / 3);
