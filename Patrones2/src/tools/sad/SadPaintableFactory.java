@@ -15,12 +15,19 @@ public class SadPaintableFactory implements PaintableFactory {
       if (useImage) {
     return new SadImageFace(x1, y1, x2, y2);
        } else {
-         return new DrawnFace(x1, y1, x2, y2,SmileConstants.SMILE_UP);
+         return new DrawnFace(x1, y1, x2, y2,SmileConstants.SMILE_DW);
+         
 //¿Qué pasa si le asigno un numero en lugar de SmileConstants.SMILE_UP?
-//No genera error, Debido a que en la clase  SmileConstants ya tiene definidas por defecto  en sus variables unos números:
-/*int SMILE_UP = 0; 
+    // Pasa que al seleccionar la opción SadPaintable, la cara Sad imprime pero no genera boca.
+         
+//¿Por qué no genera error?
+/*No genera error, Debido a que en la clase  SmileConstants ya tiene definidas por defecto unas varibales de tipo entero:
+int SMILE_UP = 0; 
 int SMILE_DW = 1;
 int SMILE_OK = 3;
+
+Por tal motivo si le asignamos otro numero diferente a 1 en este caso para la cara sap que es variable de tipo entero 
+SMILE_DW , no arroja error pero no genera la boca de la cara.
 */
         }
   }
