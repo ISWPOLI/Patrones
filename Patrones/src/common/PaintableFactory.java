@@ -6,7 +6,7 @@ import paintables.ImageFace;
 // Factory
 public class PaintableFactory {
 
-  private boolean useImage = true;
+  private boolean useImage = false;
 
   public Paintable create(int x1, int y1, int x2, int y2, int state) {
     if (useImage) {
