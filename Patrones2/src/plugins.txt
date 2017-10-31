@@ -1,3 +1,4 @@
 tools.happy.HappyPaintableFactory
 tools.normal.NormalPaintableFactory
+tools.superhappy.SuperHappyPaintableFactory
 tools.sad.SadPaintableFactory
