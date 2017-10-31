@@ -46,6 +46,23 @@ public class DrawnFace extends PaintableBase {
 
     x = (int) (x1 + (x2 - x1) * 0.55);
     paintableList.add(new Circle(x, y, x + w, y + h));
+    
+    // ----------------------------------------
+    // Pupila Ojo Izq
+    // ----------------------------------------
+    x = (int) (x1 + (x2 - x1) * 0.27);
+    y = (int) (y1 + (y2 - y1) * 0.33);
+    w = (int) ((x1 + 15) - x1);
+    h = (int) ((y1 + 15) - y1);
+    paintableList.add(new Circle(x, y, x + w, y + h));
+
+    // ----------------------------------------
+    // Pupila Ojo Der
+    // ----------------------------------------
+
+    x = (int) (x1 + (x2 - x1) * 0.63);
+    w = (int) ((x1 + 15) - x1);
+    paintableList.add(new Circle(x, y, x + w, y + w));
 
     // ----------------------------------------
     // Sonrisa
