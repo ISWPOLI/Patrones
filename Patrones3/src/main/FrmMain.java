@@ -20,32 +20,103 @@ import formats.ExtFileFilter;
 import formats.FileFormat;
 import formats.FileFormatFactory;
 import formats.FileFormatReader;
+import java.awt.GridLayout;
+import javax.swing.JPanel;
 import main.Canvas.Tool;
 import plugins.PaintableFactory;
 import plugins.PluginsReader;
+import plugins.happy.HappyPaintableFactory;
 
 // Diego Iván
 public class FrmMain extends JFrame {
 
-  private Canvas client;
-
-  private List<FileFormatFactory> fileFormatFactoryList;
+  public Canvas client;
+  
+  public List<FileFormatFactory> fileFormatFactoryList;
+  HappyPaintableFactory obj = new HappyPaintableFactory();
+  
 
   // --------------------------------------------------------------------------------
-
+  
+  
   public FrmMain() {
     setLayout(new BorderLayout());
 
     client = new Canvas();
     add(client, BorderLayout.CENTER);
-
+    
+ 
     add(initToolBarPanel(), BorderLayout.NORTH);
 
+    ////////////////////
+
+    //add(initTopPanel(), BorderLayout.NORTH);
+    add(initTopPanel(), BorderLayout.EAST);
+
+    ///////////////////
+    
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     setSize(640, 480);
     setVisible(true);
   }
 
+
+  
+  
+   public JPanel initTopPanel() {
+   JPanel ret = new JPanel();
+
+    ret.setLayout(new GridLayout(0, 1));
+
+    ButtonGroup buttonGroup = new ButtonGroup();
+
+    // ----------------------------------------
+
+    JToggleButton btnSelect = new JToggleButton("Select");
+    btnSelect.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        // Dumb so far...
+        // If no factory, then select is selected
+        client.setPaintableFactory(null);
+        client.setTool(Tool.PLUGIN);
+        
+      }
+    });
+    ret.add(btnSelect);
+    buttonGroup.add(btnSelect);
+
+    // ----------------------------------------
+
+    List<plugins.PaintableFactory> paintableFactoryList = //
+    plugins.PluginsReader.fsRead(ClassLoader.getSystemResourceAsStream("plugins.txt"));
+
+    for (final plugins.PaintableFactory paintableFactory : paintableFactoryList) {
+      JToggleButton btnTool2 = //
+      new JToggleButton(paintableFactory.getClass().getSimpleName());
+      btnTool2.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+          client.setPaintableFactory(paintableFactory);
+          obj.setbtn(obj.boton=false);
+         
+          
+        }
+          
+      });
+      ret.add(btnTool2);
+      buttonGroup.add(btnTool2);
+      
+    
+        
+    }
+    btnSelect.setSelected(true);
+
+   
+    return ret;
+  }
+ 
+   
+    
+    
   // --------------------------------------------------------------------------------
 
   public JComponent initToolBarPanel() {
@@ -63,6 +134,8 @@ public class FrmMain extends JFrame {
       public void actionPerformed(ActionEvent evt) {
         client.setPaintableFactory(null);
         client.setTool(Tool.SELECT);
+       
+        
       }
     });
     toolBar.add(btnSelect);
@@ -81,10 +154,14 @@ public class FrmMain extends JFrame {
         public void actionPerformed(ActionEvent e) {
           client.setPaintableFactory(paintableFactory);
           client.setTool(Tool.PLUGIN);
+           obj.setbtn(obj.boton=true);
+            
         }
       });
       toolBar.add(btnTool);
       buttonGroup.add(btnTool);
+     
+      
     }
 
     // --------------------------------------------------------------------------------
@@ -255,11 +332,16 @@ public class FrmMain extends JFrame {
 
   protected void btnRedoClicked() {
     client.redo();
+
+     
   }
 
   // --------------------------------------------------------------------------------
 
   public static void main(String[] args) {
     new FrmMain();
+    
   }
+  
+  
 }
