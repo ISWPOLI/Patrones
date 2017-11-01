@@ -20,6 +20,8 @@ import formats.ExtFileFilter;
 import formats.FileFormat;
 import formats.FileFormatFactory;
 import formats.FileFormatReader;
+import java.awt.GridLayout;
+import javax.swing.JPanel;
 import main.Canvas.Tool;
 import plugins.PaintableFactory;
 import plugins.PluginsReader;
@@ -39,7 +41,8 @@ public class FrmMain extends JFrame {
     client = new Canvas();
     add(client, BorderLayout.CENTER);
 
-    add(initToolBarPanel(), BorderLayout.NORTH);
+    add(initTopPanel(), BorderLayout.NORTH);
+    add(initToolBarPanel(), BorderLayout.EAST);
 
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     setSize(640, 480);
@@ -48,7 +51,7 @@ public class FrmMain extends JFrame {
 
   // --------------------------------------------------------------------------------
 
-  public JComponent initToolBarPanel() {
+  public JComponent initTopPanel() {
 
     ButtonGroup buttonGroup = new ButtonGroup();
 
@@ -58,7 +61,7 @@ public class FrmMain extends JFrame {
 
     JToggleButton btnSelect = new JToggleButton( //
         new ImageIcon(ImageCache.getInstance().getSystemImage("images/cursor.png")));
-
+        
     btnSelect.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
         client.setPaintableFactory(null);
@@ -161,6 +164,50 @@ public class FrmMain extends JFrame {
     return toolBar;
   }
 
+   public JPanel initToolBarPanel() {
+    JPanel ret = new JPanel();
+
+    ret.setLayout(new GridLayout(0, 1));
+
+    ButtonGroup buttonGroup = new ButtonGroup();
+
+    // ----------------------------------------
+
+    JToggleButton btnSelect2 = new JToggleButton("Select");
+    btnSelect2.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        // Dumb so far...
+        // If no factory, then select is selected
+        client.setPaintableFactory(null);
+      }
+    });
+    ret.add(btnSelect2);
+    buttonGroup.add(btnSelect2);
+
+    // ----------------------------------------
+
+    List<PaintableFactory> paintableFactoryList = //
+    PluginsReader.fsRead(ClassLoader.getSystemResourceAsStream("plugins_1.txt"));
+ 
+    for (final PaintableFactory paintableFactory : paintableFactoryList) {
+      JToggleButton btnTool = //
+      new JToggleButton(paintableFactory.getClass().getSimpleName());
+      btnTool.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+          client.setPaintableFactory(paintableFactory);
+          client.setTool(Tool.PLUGIN);
+        }
+      });
+      ret.add(btnTool);
+      buttonGroup.add(btnTool);
+    }
+
+    //btnSelect2.setSelected(true);
+
+    return ret;
+  }
+  
+  
   // --------------------------------------------------------------------------------
 
   private FileFormatFactory getFileFormatFactory(String ext) {
