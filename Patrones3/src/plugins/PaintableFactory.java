@@ -1,5 +1,6 @@
 package plugins;
 
+
 import javax.swing.ImageIcon;
 
 // Factory
@@ -10,4 +11,6 @@ public interface PaintableFactory {
   public ImageIcon getToolIcon();
 
   public String/**/getToolName();
+ 
+  
 }

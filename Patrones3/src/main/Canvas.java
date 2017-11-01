@@ -16,13 +16,14 @@ import commands.CreateCommand;
 import commands.DeleteCommand;
 import commands.MoveCommand;
 import common.Command;
+
 import plugins.Paintable;
 import plugins.PaintableFactory;
 
 public class Canvas extends JPanel {
 
   public enum Tool {
-    SELECT, DELETE, PLUGIN
+    SELECT, DELETE, PLUGIN,
   }
 
   // --------------------------------------------------------------------------------
@@ -33,7 +34,6 @@ public class Canvas extends JPanel {
   private List<Command> redoList = new ArrayList<Command>();
 
   private PaintableFactory paintableFactory = null;
-
   private Paintable draggedPaintable;
   private Point/* */draggedBasePoint;
 
@@ -41,6 +41,7 @@ public class Canvas extends JPanel {
 
   private int dx;
   private int dy;
+
 
   // --------------------------------------------------------------------------------
 
@@ -152,12 +153,18 @@ public class Canvas extends JPanel {
 
         undoList.add(createCommand);
         redoList.clear();
+        
         break;
+        
+        
     }
-
-    repaint();
+         
+        repaint(); 
+        
+    
   }
-
+  
+  
   // --------------------------------------------------------------------------------
 
   protected void clientMouseReleased(MouseEvent evt) {
@@ -252,6 +259,8 @@ public class Canvas extends JPanel {
 
   public void setPaintableFactory(PaintableFactory paintableFactory) {
     this.paintableFactory = paintableFactory;
+    
+    
   }
 
   public List<Paintable> getPaintableList() {
@@ -269,4 +278,10 @@ public class Canvas extends JPanel {
   public void setTool(Tool tool) {
     this.tool = tool;
   }
+  
+
+  
 }
+
+  
+  
