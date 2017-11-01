@@ -8,7 +8,11 @@ import common.PaintableBase;
 import common.SmileConstants;
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import main.FrmMain;
 
 public class ImageFace extends PaintableBase {
 
@@ -21,10 +25,23 @@ public class ImageFace extends PaintableBase {
 
    //  Opcion A
         try {
-          bufferedImage = ImageIO.read(new File("smile0.png"));
-        } catch (IOException e) {
+          bufferedImage = ImageIO.read(new File(getClass().getResource("smile0.png").toURI()));
+        } catch (IOException | URISyntaxException e) {
           throw new RuntimeException(e);
         }
+      // Opcion B
+//    switch (state) {
+//      case SmileConstants.SMILE_DW :
+//        bufferedImage = ImageCache.getInstance().getImage("smile0.png");
+//        break;
+//      case SmileConstants.SMILE_OK :
+//        bufferedImage = ImageCache.getInstance().getImage("smile1.png");
+//        break;
+//      case SmileConstants.SMILE_UP :
+//        bufferedImage = ImageCache.getInstance().getImage("smile2.png");
+//        break;
+//    }
+      
 
     // Opcion B
 //    switch (state) {

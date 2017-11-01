@@ -5,11 +5,12 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
 
-import common.Paintable;
-import common.Paintable;
-import common.PaintableBase;
-import common.PaintableBase;
+//import common.Paintable;
+import plugins.Paintable;
+import plugins.PaintableBase;
+//import common.PaintableBase;
 import paintables.Circle;
+import plugins.PaintableFactory;
 
 // Composite
 public class DrawnFace extends PaintableBase {
@@ -88,4 +89,14 @@ public class DrawnFace extends PaintableBase {
       paintable.move(dx, dy);
     }
   }
+
+//    @Override
+//    public PaintableFactory getPaintableFactory() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+
+    @Override
+    public PaintableFactory getPaintableFactory() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

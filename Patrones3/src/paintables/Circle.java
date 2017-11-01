@@ -3,7 +3,8 @@ package paintables;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import common.PaintableBase;
+import plugins.PaintableBase;
+import plugins.PaintableFactory;
 
 public class Circle extends PaintableBase {
 
@@ -18,4 +19,9 @@ public class Circle extends PaintableBase {
     g2d.setColor(Color.BLACK);
     g2d.drawOval(x1, y1, x2 - x1, y2 - y1);
   }
+
+    @Override
+    public PaintableFactory getPaintableFactory() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

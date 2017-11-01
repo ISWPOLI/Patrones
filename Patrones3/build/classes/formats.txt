@@ -1,0 +1,2 @@
+formats.txt1.Txt1FileFormatFactory
+formats.txt2.Txt2FileFormatFactory

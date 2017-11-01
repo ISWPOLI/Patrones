@@ -3,7 +3,8 @@ package paintables;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import common.PaintableBase;
+import plugins.PaintableBase;
+import plugins.PaintableFactory;
 import common.SmileConstants;
 
 public class Smile extends PaintableBase {
@@ -39,4 +40,9 @@ public class Smile extends PaintableBase {
         break;
     }
   }
+
+    @Override
+    public PaintableFactory getPaintableFactory() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

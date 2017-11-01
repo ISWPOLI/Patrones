@@ -24,6 +24,9 @@ import javax.swing.JOptionPane;
 import main.Canvas.Tool;
 import plugins.PaintableFactory;
 import plugins.PluginsReader;
+import plugins.happy.HappyPaintableFactory;
+import plugins.normal.NormalPaintableFactory;
+import plugins.sad.SadPaintableFactory;
 
 // Diego Iván
 public class FrmMain extends JFrame {
@@ -68,32 +71,17 @@ public class FrmMain extends JFrame {
     });
     toolBar.add(btnSelect);
     buttonGroup.add(btnSelect);
-
-    
-    
-    List<PaintableFactory> paintableFactoryListFigures = //
-    PluginsReader.fsRead(ClassLoader.getSystemResourceAsStream("plugins_figures.txt"));
-
-    for (final PaintableFactory paintableFactory : paintableFactoryListFigures) {
-      JToggleButton btnTool = //
-      new JToggleButton(paintableFactory.getClass().getSimpleName());
-      btnTool.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-          client.setPaintableFactory(paintableFactory);
-        }
-      });
-      toolBar.add(btnTool);
-      buttonGroup.add(btnTool);
-    }
     
     // --------------------------------------------------------------------------------
 
+    HappyPaintableFactory hpf = new HappyPaintableFactory();
+    hpf.setUseImage(false);
     JToggleButton btnFigSmile = new JToggleButton( new ImageIcon(ImageCache.getInstance().getSystemImage("images/smile.png")) );
     btnFigSmile.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
-          JOptionPane.showMessageDialog(rootPane, "Smile");
-//        client.setPaintableFactory(null);
-//        client.setTool(Tool.SELECT);
+//          JOptionPane.showMessageDialog(rootPane, "Smile");
+          client.setPaintableFactory(hpf);
+          client.setTool(Tool.PLUGIN);
       }
     });
     toolBar.add(btnFigSmile);
@@ -101,12 +89,14 @@ public class FrmMain extends JFrame {
 
     // --------------------------------------------------------------------------------
     
+    NormalPaintableFactory npf = new NormalPaintableFactory();
+    npf.setUseImage(false);
     JToggleButton btnFigNormal = new JToggleButton( new ImageIcon(ImageCache.getInstance().getSystemImage("images/normal.png")) );
     btnFigNormal.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
-          JOptionPane.showMessageDialog(rootPane, "Normal");
-//        client.setPaintableFactory(null);
-//        client.setTool(Tool.SELECT);
+//          JOptionPane.showMessageDialog(rootPane, "Normal");
+          client.setPaintableFactory(npf);
+          client.setTool(Tool.PLUGIN);
       }
     });
     toolBar.add(btnFigNormal);
@@ -114,12 +104,14 @@ public class FrmMain extends JFrame {
 
     // --------------------------------------------------------------------------------
     
+    SadPaintableFactory spf = new SadPaintableFactory();
+    spf.setUseImage(false);
     JToggleButton btnFigSad = new JToggleButton( new ImageIcon(ImageCache.getInstance().getSystemImage("images/sad.png")) );
     btnFigSad.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
-          JOptionPane.showMessageDialog(rootPane, "Sad");
-//        client.setPaintableFactory(null);
-//        client.setTool(Tool.SELECT);
+//          JOptionPane.showMessageDialog(rootPane, "Sad");
+          client.setPaintableFactory(spf);
+          client.setTool(Tool.PLUGIN);
       }
     });
     toolBar.add(btnFigSad);
