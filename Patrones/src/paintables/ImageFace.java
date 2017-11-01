@@ -8,6 +8,7 @@ import common.PaintableBase;
 import common.SmileConstants;
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import javax.imageio.ImageIO;
 
 public class ImageFace extends PaintableBase {
@@ -16,12 +17,12 @@ public class ImageFace extends PaintableBase {
 
   // --------------------------------------------------------------------------------
 
-  public ImageFace(int x1, int y1, int x2, int y2, int state) {
+  public ImageFace(int x1, int y1, int x2, int y2, int state) throws URISyntaxException {
     super(x1, y1, x2, y2);
 
    //  Opcion A
         try {
-          bufferedImage = ImageIO.read(new File("smile0.png"));
+          bufferedImage = ImageIO.read(new File(getClass().getResource("/main/smile0.png").toURI()));
         } catch (IOException e) {
           throw new RuntimeException(e);
         }
