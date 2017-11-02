@@ -84,7 +84,7 @@ public class FrmMain extends JFrame {
     // ----------------------------------------
 
     List<PaintableFactory> paintableFactoryList = //
-    PluginsReader.fsRead(ClassLoader.getSystemResourceAsStream("plugins.txt"));
+    PluginsReader.fsRead(ClassLoader.getSystemResourceAsStream("plugins2.txt"));
 
     for (final PaintableFactory paintableFactory : paintableFactoryList) {
       JToggleButton btnTool = //
@@ -92,6 +92,7 @@ public class FrmMain extends JFrame {
       btnTool.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
           client.setPaintableFactory(paintableFactory);
+          System.out.println(btnTool);
         }
       });
       ret.add(btnTool);
